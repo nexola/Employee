@@ -10,7 +10,7 @@ public class Main {
 
     // Function to clear the console
     public static void clear() {
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.println("\n\n\n\n\n\n\n\n\n");
     }
 
     public static void main(String[] args) {
@@ -25,7 +25,7 @@ public class Main {
 
         // Fori collecting employees
         for (int i = 0; i < numberOfEmployees; i++) {
-            System.out.printf("Employee #%d", i+1);
+            System.out.printf("\nEmployee #%d", i+1);
             // If outsourced, user needs to provide one more value (Additional charge)
             System.out.print("\nOutsourced? ");
             String outsourced = sc.next();
@@ -40,6 +40,7 @@ public class Main {
                 Double additionalCharge = sc.nextDouble();
                 Employee employee = new OutsourcedEmployee(name, hours, valuePerHour, additionalCharge);
                 generalEmployee.addEmployee(employee);
+                clear();
             } else {
                 System.out.print("Name: ");
                 String name = sc.next();
@@ -49,9 +50,11 @@ public class Main {
                 Double valuePerHour = sc.nextDouble();
                 Employee employee = new Employee(name, hours, valuePerHour);
                 generalEmployee.addEmployee(employee);
+                clear();
             }
         }
         clear();
         System.out.println(generalEmployee);
+        sc.close();
     }
 }

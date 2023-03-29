@@ -4,7 +4,9 @@ public final class OutsourcedEmployee extends Employee {
     private Double additionalCharge;
 
     // Constructors
-    public OutsourcedEmployee() {}
+    public OutsourcedEmployee() {
+        super();
+    }
 
     public OutsourcedEmployee(String name, Integer hours, Double valuePerHour, Double additionalCharge) {
         super(name, hours, valuePerHour);
@@ -23,6 +25,6 @@ public final class OutsourcedEmployee extends Employee {
     // Original payment plus 110% of additional charge
     @Override
     public Double payment() {
-        return hours * valuePerHour + additionalCharge * 1.1;
+        return super.payment() + additionalCharge * 1.1;
     }
 }
