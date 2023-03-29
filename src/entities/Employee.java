@@ -9,6 +9,7 @@ public class Employee {
     protected Double valuePerHour;
     protected List<Employee> employees = new ArrayList<>();
 
+    // Constructors
     public Employee() {}
 
     public Employee(String name, Integer hours, Double valuePerHour) {
@@ -17,6 +18,7 @@ public class Employee {
         this.valuePerHour = valuePerHour;
     }
 
+    // Getters and setters
     public String getName() {
         return name;
     }
@@ -41,26 +43,33 @@ public class Employee {
         this.valuePerHour = valuePerHour;
     }
 
-    public Double payment() {
-        return hours * valuePerHour;
-    }
-
     public List<Employee> getEmployees() {
         return employees;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Olá!").append(hours);
-        return sb.toString();
+    // Payment calculator
+    public Double payment() {
+        return hours * valuePerHour;
     }
 
+    // Add and remove employee from the list
     public void addEmployee(Employee employee) {
         employees.add(employee);
     }
 
     public void removeEmployee(Employee employee) {
         employees.remove(employee);
+    }
+
+    // To string
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("PAYMENTS:\n");
+        for (Employee employee: employees) {
+            sb.append(employee.name).append(" - $ ").append(String.format("%.2f", employee.payment()));
+            sb.append("\n");
+        }
+        return sb.toString();
     }
 }
